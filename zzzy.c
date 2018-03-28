@@ -41,7 +41,10 @@ main(int argc, char *argv[])
 			return 1;
 		}
 
-		wakeup = mktime(&tm);
+		if ((wakeup = mktime(&tm)) == (time_t)-1) {
+			warnx("mktime failed");
+			return 1;
+		}
 
 		for (int cycles = 1; cycles < 7; cycles++) {
 			sleep = mom(wakeup, cycles);
