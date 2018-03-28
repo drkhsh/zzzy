@@ -46,7 +46,7 @@ main(int argc, char *argv[])
 			printf("%s\n", buf);
 		}
 	} else {
-		fprintf(stderr, "usage: %s [wakeup time]\n", argv[0]);;
+		fprintf(stderr, "usage: %s [waketime]\n", argv[0]);;
 		return 1;
 	}
 
