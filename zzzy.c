@@ -1,5 +1,4 @@
 /* See LICENSE file for copyright and license details */
-#include <err.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,12 +36,12 @@ main(int argc, char *argv[])
 	} else if (argc == 2) {
 		memset(&tm, 0, sizeof(struct tm));
 		if(!strptime(argv[1], "%H:%M", &tm)) {
-			warnx("No such time: %s", argv[1]);
+			fprintf(stderr, "%s: Nu such time: %s\n", argv[0], argv[1]);
 			return 1;
 		}
 
 		if ((wakeup = mktime(&tm)) == (time_t)-1) {
-			warnx("mktime failed");
+			fprintf(stderr, "%s: mktime failed\n", argv[0]);
 			return 1;
 		}
 
