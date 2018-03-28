@@ -21,26 +21,26 @@ mom(const time_t wakeuptime, const int cycles)
 int
 main(int argc, char *argv[])
 {
-	const time_t now = time(NULL);
 	char buf[6];
+	const time_t now = time(NULL);
+	struct tm tm;
+	time_t wakeup, sleep;
 
 	if (argc == 1) {
 		for (int cycles = 1; cycles < 7; cycles++) {
-			time_t wakeup = alarmclock(now, cycles);
+			wakeup = alarmclock(now, cycles);
 
 			strftime(buf, 6, "%H:%M", localtime(&wakeup));
 			printf("%s\n", buf);
 		}
 	} else if (argc == 2) {
-		struct tm tm;
-
 		memset(&tm, 0, sizeof(struct tm));
 		strptime(argv[1], "%H:%M", &tm);
 
-		time_t wakeup = mktime(&tm);
+		wakeup = mktime(&tm);
 
 		for (int cycles = 1; cycles < 7; cycles++) {
-			time_t sleep = mom(wakeup, cycles);
+			sleep = mom(wakeup, cycles);
 
 			strftime(buf, 6, "%H:%M", localtime(&sleep));
 			printf("%s\n", buf);
