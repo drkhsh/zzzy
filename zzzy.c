@@ -36,12 +36,12 @@ main(int argc, char *argv[])
 	} else if (argc == 2) {
 		memset(&tm, 0, sizeof(struct tm));
 		if(!strptime(argv[1], "%H:%M", &tm)) {
-			fprintf(stderr, "%s: Nu such time: %s\n", argv[0], argv[1]);
+			fprintf(stderr, "No such time: %s\n", argv[1]);
 			return 1;
 		}
 
 		if ((wakeup = mktime(&tm)) == (time_t)-1) {
-			fprintf(stderr, "%s: mktime failed\n", argv[0]);
+			fprintf(stderr, "mktime failed\n");
 			return 1;
 		}
 
