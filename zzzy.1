@@ -1,0 +1,24 @@
+.Dd 2018-03-28
+.Dt ZZZY 1
+.Os
+.Sh NAME
+.Nm zzzy
+.Nd simple sleep cycle calculator
+.Sh SYNOPSIS
+.Nm
+.Op Ar wakeup time
+.Sh DESCRIPTION
+.Nm
+is a simple sleep cycle calculator.
+By default,
+.Nm
+outputs different wakeup times if you go to bed now.
+.Sh OPTIONS
+.Bl -tag -width Ds
+.It Ar wakeup time
+Output when to go to bed if you have to wake up at a specific time in format %H:%M.
+.El
+.Sh CUSTOMIZATION
+.Nm
+can be customized by creating a custom config.h and (re)compiling the source
+code. This keeps it fast, secure and simple.
