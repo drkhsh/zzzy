@@ -27,7 +27,7 @@ main(int argc, char *argv[])
 	time_t wakeup, sleep;
 
 	if (argc == 1) {
-		for (int cycles = 6; cycles > 0; cycles--) {
+		for (int cycles = 1; cycles < 7; cycles++) {
 			wakeup = alarmclock(now, cycles);
 
 			strftime(buf, 6, "%H:%M", localtime(&wakeup));
