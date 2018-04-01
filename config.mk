@@ -1,5 +1,5 @@
 # zzzy version
-VERSION = 0
+VERSION = 1
 
 # customize below to fit your system
 
