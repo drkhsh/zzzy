@@ -6,13 +6,13 @@
 
 #include "config.h"
 
-static const time_t
+static time_t
 alarmclock(const time_t bedtime, const int cycles)
 {
 	return bedtime + fallasleep + cycle * cycles;
 }
 
-static const time_t
+static time_t
 mom(const time_t wakeuptime, const int cycles)
 {
 	return wakeuptime - (fallasleep + cycle * cycles);
