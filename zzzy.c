@@ -26,9 +26,10 @@ main(int argc, char *argv[])
 	const time_t now = time(NULL);
 	struct tm tm;
 	time_t wakeup, sleep;
+	int cycles;
 
 	if (argc == 1) {
-		for (int cycles = 1; cycles < 7; cycles++) {
+		for (cycles = 1; cycles < 7; cycles++) {
 			wakeup = alarmclock(now, cycles);
 
 			strftime(buf, 6, "%H:%M", localtime(&wakeup));
